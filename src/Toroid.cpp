@@ -9,14 +9,11 @@
 #include "Toroid.h"
 
 
-namespace ijg {
-    
-    std::ostream& operator<<(std::ostream& output, const Toroid& toroid)
-    {
-        std::cout<< (BaseGeom)toroid << std::endl;
-        output << "Toroid obj: [ ringCount = "<<toroid.getRingCount()<<" ringDetail = "<<toroid.getRingDetail()<<" ringRadius = "<<toroid.getRingRadius()<<" ]";
-        return output;
-    }
+
+std::ostream& operator<<(std::ostream& output, const Toroid& toroid)
+{
+    output << "Toroid obj: [ loc = " << toroid.loc << ", rot = " << toroid.rot << ", dim = " << toroid.dim << ", color = " << toroid.color << ", ringCount = " << toroid.getRingCount() << ", ringDetail = " << toroid.getRingDetail() << ", ringRadius = " << toroid.getRingRadius()<<" ]";
+    return output;
 }
 
 

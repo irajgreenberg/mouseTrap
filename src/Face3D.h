@@ -12,28 +12,28 @@
 
 #include "ofMain.h"
 
+
+class Face3D {
     
-    class Face3D {
-        
-    public:
-        
-        Face3D(const ofVec3f& v0, const ofVec3f& v1, const ofVec3f& v2);
-        
-        ofVec3f v0, v1, v2;
-        ofVec3f normal, centroid;
-        ofVec3f* vecs; // pointer to array
-        ofVec3f* p_vecs[3]; // array of vec pointers
-        
-        ofVec3f& getNormal();
-        
-        void display();
-        void displayNormal(float len = .1);
-        
-    private:
-        void calcNormal();
-        void calcCentroid();
-        
-        
-    };
+public:
+    
+    Face3D(const ofVec3f& v0, const ofVec3f& v1, const ofVec3f& v2);
+    
+    ofVec3f v0, v1, v2;
+    ofVec3f normal, centroid;
+    ofVec3f* vecs; // pointer to array
+    ofVec3f* p_vecs[3]; // array of vec pointers
+    
+    ofVec3f& getNormal();
+    
+    void display();
+    void displayNormal(float len = .1);
+    
+private:
+    void calcNormal();
+    void calcCentroid();
+    
+    
+};
 
 #endif

@@ -76,6 +76,8 @@ void Controller::setup(){
     // toroids
     toroid =  Toroid(ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), Dimension3D(240, 240, 240), Color4f(ofRandom(1), ofRandom(1), ofRandom(1)), 60, 80, .06);
     toroid2 =  Toroid(ofVec3f(0, 0, 0), ofVec3f(ofRandom(360), ofRandom(360), ofRandom(360)), Dimension3D(140, 140, 140), Color4f(ofRandom(1), ofRandom(1), ofRandom(1)), 60, 80, .12);
+    
+    std::cout<< "toroid = " << toroid << std::endl;
 }
 
 //============================================================================
