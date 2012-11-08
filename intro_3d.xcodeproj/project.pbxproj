@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A413E2615F7CC710066A6C1 /* Tuple3i.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A413E2515F7CC710066A6C1 /* Tuple3i.cpp */; };
 		2A8DE23915EFB2D000FC89C3 /* Face3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DE23815EFB2D000FC89C3 /* Face3D.cpp */; };
+		2A9C1389164C0F1E006F3564 /* Icosahedron.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A9C1388164C0F1E006F3564 /* Icosahedron.cpp */; };
 		725C1015164041FE00B7020E /* BaseGeom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 725C1014164041FE00B7020E /* BaseGeom.cpp */; };
 		725C1018164042D100B7020E /* Box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 725C1017164042D100B7020E /* Box.cpp */; };
 		728A92CE1620681800610171 /* Toroid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 728A92CD1620681800610171 /* Toroid.cpp */; };
@@ -68,6 +69,8 @@
 		2A413E2515F7CC710066A6C1 /* Tuple3i.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tuple3i.cpp; sourceTree = "<group>"; };
 		2A8DE23715EFB2C400FC89C3 /* Face3D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Face3D.h; sourceTree = "<group>"; };
 		2A8DE23815EFB2D000FC89C3 /* Face3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Face3D.cpp; sourceTree = "<group>"; };
+		2A9C1386164C0F0F006F3564 /* Icosahedron.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Icosahedron.h; sourceTree = "<group>"; };
+		2A9C1388164C0F1E006F3564 /* Icosahedron.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Icosahedron.cpp; sourceTree = "<group>"; };
 		725C10131640332F00B7020E /* BaseGeom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseGeom.h; sourceTree = "<group>"; };
 		725C1014164041FE00B7020E /* BaseGeom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseGeom.cpp; sourceTree = "<group>"; };
 		725C1016164042C600B7020E /* Box.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				725C1017164042D100B7020E /* Box.cpp */,
 				72CCCCDA164A01C1003AB54F /* Color4f.h */,
 				72CCCCDB164A0268003AB54F /* Color4f.cpp */,
+				2A9C1386164C0F0F006F3564 /* Icosahedron.h */,
+				2A9C1388164C0F1E006F3564 /* Icosahedron.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -316,6 +321,7 @@
 				725C1015164041FE00B7020E /* BaseGeom.cpp in Sources */,
 				725C1018164042D100B7020E /* Box.cpp in Sources */,
 				72CCCCDC164A0268003AB54F /* Color4f.cpp in Sources */,
+				2A9C1389164C0F1E006F3564 /* Icosahedron.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
