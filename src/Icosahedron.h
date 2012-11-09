@@ -14,7 +14,7 @@ class Icosahedron : public BaseGeom {
     
 public:
     Icosahedron();
-    Icosahedron(const ofVec3f& loc, const ofVec3f& rot, const Dimension3D& dim, const Color4f& color, float mass);
+    Icosahedron(const ofVec3f& loc, const ofVec3f& rot, const Dimension3D& dim, const Color4f& color);
     void calcVerts();
     void calcInds();
 private:

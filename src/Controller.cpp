@@ -65,19 +65,45 @@ void Controller::setup(){
     // Array of boxes
     float cellW = ofGetWidth()/COLS;
     float cellH = ofGetHeight()/ROWS;
+    forms = new BaseGeom*[COLS*ROWS];
     for(int i=0; i<ROWS; i++){
         for(int j=0; j<COLS; j++){
-            boxes[i][j] = Box(ofVec3f(cellW/2 + cellW*j, cellH/2 + cellH*i, 0), ofVec3f(ofRandom(360),
-                                                                                        ofRandom(360), ofRandom(360)), Dimension3D(cellW*.5, cellH*.5, cellW*.5),
-                              Color4f(Color4f(ofRandom(1), ofRandom(1), ofRandom(1))), 2);
+            /*boxes[i][j] = Box(ofVec3f(cellW/2 + cellW*j, cellH/2 + cellH*i, 0), ofVec3f(ofRandom(360),
+                        ofRandom(360), ofRandom(360)), Dimension3D(cellW*.5, cellH*.5, cellW*.5),
+                        Color4f(Color4f(ofRandom(1), ofRandom(1), ofRandom(1))), 2);*/
+            
+            switch(int(ofRandom(3))){
+            case 0:
+                forms[i*COLS+j] = new Box(ofVec3f(cellW/2 + cellW*j, cellH/2 + cellH*i, 0),
+                                          ofVec3f(ofRandom(360), ofRandom(360), ofRandom(360)),
+                                          Dimension3D(cellW*.5, cellH*.5, cellW*.5),
+                                          Color4f(Color4f(ofRandom(1), ofRandom(1), ofRandom(1))), 2);
+                break;
+            case 1:
+                    forms[i*COLS+j] = new Toroid(ofVec3f(cellW/2 + cellW*j, cellH/2 + cellH*i, 0),
+                                                 ofVec3f(ofRandom(360), ofRandom(360), ofRandom(360)),
+                                                 Dimension3D(cellH*.5, cellH*.5, cellH*.5),
+                                                 Color4f(Color4f(ofRandom(1), ofRandom(1), ofRandom(1))), 60, 80, ofRandom(.06, .25));
+                break;
+            case 2:
+                    forms[i*COLS+j] =  new Icosahedron(ofVec3f(cellW/2 + cellW*j, cellH/2 + cellH*i, 0),
+                                                       ofVec3f(ofRandom(360), ofRandom(360), ofRandom(360)),
+                                                       Dimension3D(cellH*.5, cellH*.5, cellH*.5),
+                                                       Color4f(Color4f(ofRandom(1), ofRandom(1), ofRandom(1))));
+                break;
+                
+            }
+            rots[i*COLS+j] = ofVec3f(ofRandom(5), ofRandom(5), ofRandom(5));
         }
     }
     
     // toroids
-    toroid =  Toroid(ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), Dimension3D(240, 240, 240), Color4f(ofRandom(1), ofRandom(1), ofRandom(1)), 60, 80, .06);
+    toroid =  Toroid(ofVec3f(0, 0, 0), ofVec3f(0, 0, 0), Dimension3D(240, 240, 240), Color4f(ofRandom(1), ofRandom(1), ofRandom(1)), 60, 80, .08);
     toroid2 =  Toroid(ofVec3f(0, 0, 0), ofVec3f(ofRandom(360), ofRandom(360), ofRandom(360)), Dimension3D(140, 140, 140), Color4f(ofRandom(1), ofRandom(1), ofRandom(1)), 60, 80, .12);
     
     std::cout<< "toroid = " << toroid << std::endl;
+    
+    ico = new Icosahedron(ofVec3f(0, 0, 0), ofVec3f(15, 30, 100), Dimension3D(90, 90, 90), Color4f(ofRandom(1), ofRandom(1), ofRandom(1)));
 }
 
 //============================================================================
@@ -116,21 +142,32 @@ void Controller::draw(){
     
     
     glPushMatrix();
-    glTranslatef(-ofGetWidth()/2,-ofGetHeight()/2, -100);
+    glTranslatef(-ofGetWidth()/2,-ofGetHeight()/2, -10);
     for(int i=0; i<ROWS; i++){
         for(int j=0; j<COLS; j++){
             glEnable(GL_LIGHTING);
-            boxes[i][j].display();
+            //glPushMatrix();
+            //ofRotate(rots[i*COLS+j].x++, 1, 0, 0);
+            //ofRotate(rots[i*COLS+j].y++, 0, 1, 0);
+            //ofRotate(rots[i*COLS+j].z++, 0, 0, 1);
+            forms[i*COLS+j]->display();
+            //glPopMatrix();
+            //boxes[i][j].display();
             
             glDisable(GL_LIGHTING);
-            boxes[i][j].displayNormal(.3);
+            //boxes[i][j].displayNormal(.3);
         }
     }
     glPopMatrix();
     
     glEnable(GL_LIGHTING);
-    toroid.display();
-    toroid2.display();
+    //toroid.display();
+    //toroid2.display();
+    
+    glEnable(GL_LIGHTING);
+    //ico->display();
+    glDisable(GL_LIGHTING);
+    //ico->displayNormal(.3);
     
     cam.end();
 }

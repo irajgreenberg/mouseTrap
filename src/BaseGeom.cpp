@@ -24,7 +24,6 @@ BaseGeom::BaseGeom()
 BaseGeom::BaseGeom(const ofVec3f& loc, const ofVec3f& rot, const Dimension3D& dim, const Color4f& color):
 loc(loc), rot(rot), dim(dim), color(color)
 {
-    
 }
 
 void BaseGeom::move()
@@ -58,8 +57,10 @@ void BaseGeom::display()
 {
     glPushMatrix();
     glTranslatef(loc.x, loc.y, loc.z);
+    glRotatef(rot.x++, 1, 0, 0);
+    glRotatef(rot.y++, 0, 1, 0);
+    glRotatef(rot.z++, 0, 0, 1);
     glScalef(dim.w, dim.h, dim.d);
-    glRotatef(rot.x++, 1, 1, 1);
     glColor3f(color.r, color.g, color.b);
     for (int i=0; i<faces.size(); i++){
         faces.at(i).display();

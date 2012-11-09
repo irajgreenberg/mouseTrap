@@ -4,6 +4,7 @@
 #include "Color4f.h"
 #include "Box.h"
 #include "Toroid.h"
+#include "Icosahedron.h"
 
 
 
@@ -14,9 +15,12 @@ public:
     
     Box b;
     Toroid toroid, toroid2;
+    BaseGeom* ico;
+    BaseGeom** forms;
     //std::vector<Box> boxes;
     static const int ROWS = 10;
     static const int COLS = 10;
+    ofVec3f rots[ROWS*COLS];
     Box boxes[ROWS][COLS];
     
     ofEasyCam cam; // add mouse controls for camera movement
